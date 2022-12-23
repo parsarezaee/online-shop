@@ -9,6 +9,8 @@ https://docs.djangoproject.com/en/4.0/topics/settings/
 For the full list of settings and their values, see
 https://docs.djangoproject.com/en/4.0/ref/settings/
 """
+
+import braintree
 import os
 from pathlib import Path
 from dotenv import load_dotenv
@@ -41,7 +43,8 @@ INSTALLED_APPS = [
 
     'shop.apps.ShopConfig',
     'cart.apps.CartConfig',
-    'orders.apps.OrdersConfig'
+    'orders.apps.OrdersConfig',
+    'payment.apps.PaymentConfig'
 ]
 
 MIDDLEWARE = [
@@ -131,3 +134,24 @@ DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
 EMAIL_BACKEND = 'django.core.mail.backends.console.EmailBackend'
 
 CART_SESSION_ID = 'cart'
+
+#Braintree settings
+BRAINTREE_MERCHANT_ID = "XXX"
+BRAINTREE_PUBLIC_KEY = "XXX"
+BRAINTREE_PRIVATE_KEY = "XXX"
+
+
+CELERY_BROKER_URL = 'redis://localhost:6379/3'
+CELERY_RESULT_BACKEND = 'redis://localhost:6379/3'
+CELERY_ACCEPT_CONTENT = ['application/json']
+CELERY_TASK_SERIALIZER = 'json'
+
+BRAINTREE_CONF = braintree.Configuration(
+    braintree.Environment.Sandbox,
+    BRAINTREE_MERCHANT_ID,
+    BRAINTREE_PUBLIC_KEY,
+    BRAINTREE_PRIVATE_KEY
+)
+
+# STRIPE_PUBLISHABLE_KEY = 'pk_test_51MIBHPGGF1PtflvwDDN1t25oiYqgo7UgfxG1VjOjkvkA4DlRfPT5GjkpwKJhfXwhzjoDcmlgwoVdEMvSqg3nR1JH00taNkBv5j'
+# STRIPE_PRIVATE_KEY = str(os.getenv('STRIPE_PRIVATE_KEY'))
