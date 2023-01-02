@@ -17,6 +17,7 @@ cssselect2==0.7.0
 dj-database-url==1.2.0
 Django==3.2
 django-heroku==0.3.1
+django-rosetta==0.9.8
 fonttools==4.38.0
 gunicorn==20.1.0
 html5lib==1.1
@@ -26,6 +27,7 @@ kombu==5.2.4
 lxml==4.9.2
 Pillow==9.3.0
 platformdirs==2.6.0
+polib==1.1.1
 prompt-toolkit==3.0.36
 psycopg2==2.9.5
 psycopg2-binary==2.9.5

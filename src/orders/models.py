@@ -3,15 +3,17 @@ from shop.models import Product
 from coupons.models import Coupon
 from decimal import Decimal
 from django.core.validators import MinValueValidator, MaxValueValidator
+from django.utils.translation import gettext_lazy as _
+
 
 
 class Order(models.Model):
-    first_name = models.CharField(max_length=50)
-    last_name = models.CharField(max_length=50)
-    email = models.EmailField()
-    address = models.CharField(max_length=250)
-    postal_code = models.CharField(max_length=20)
-    city = models.CharField(max_length=100)
+    first_name = models.CharField(_('first_name'), max_length=50)
+    last_name = models.CharField(_('last_name'), max_length=50)
+    email = models.EmailField(_('e-mail'))
+    address = models.CharField(_('address'), max_length=250)
+    postal_code = models.CharField(_('postal code'), max_length=20)
+    city = models.CharField(_('city'), max_length=100)
     created = models.DateField(auto_now_add=True)
     updated = models.DateTimeField(auto_now=True)
     paid = models.BooleanField(default=False)
