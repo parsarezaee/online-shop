@@ -17,6 +17,7 @@ cssselect2==0.7.0
 dj-database-url==1.2.0
 Django==3.2
 django-heroku==0.3.1
+django-parler==2.3
 django-rosetta==0.9.8
 fonttools==4.38.0
 gunicorn==20.1.0
